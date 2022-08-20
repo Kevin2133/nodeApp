@@ -1,0 +1,386 @@
+*{
+    box-sizing: border-box;
+    font-family: "Josephine Sans", sans-serif;
+    color: #ffffff;    
+    padding: 0;
+    margin: 0;
+}
+
+/*Headers*/
+
+h4{
+    /*font-size: calc(0.4*6.5vw);*/
+    /*h2/2*/
+    font-size: 2em;
+}
+
+h3{
+    /*font-size: calc(0.5*6.5vw);*/
+    /*between h2 and h4*/
+    font-size: 4em;
+}
+
+h2{
+    /*font-size: calc(2/3*6.5vw);*/
+    /*66% of h1*/
+    font-size: 6em;
+}
+
+h1{
+    /*font-size: 6.5vw;*/
+    font-size: 8em;
+}
+
+/*Fine headers*/
+
+/*
+stili prima pagina
+*/
+
+.introduzione{
+    min-height: 100vh;
+    min-width: 100%; 
+    background-image: url("../img/fotoSfondo.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0,0,0,0.6);
+    background-blend-mode: multiply;
+}
+
+.introduzione-temp{
+    min-height: fit-content;
+    min-width: 100%; 
+    background-image: url("../img/fotoSfondo.jpeg");
+    background-size: cover;
+    background-position: top;
+    background-color: rgba(0,0,0,0.6);
+    background-blend-mode: multiply;
+}
+
+/*div prima pagina*/
+
+.main-nav{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 8%;
+    padding-right: 8%;
+    padding-top: 5vh;
+}
+
+.logo{
+    font-style: italic;
+    cursor: pointer;
+}
+
+.span-logo{
+    color: aqua;
+}
+
+span{
+    color: rgb(26, 179, 187);
+}
+
+nav ul{
+    min-width: 50%;
+    text-align: center;
+}
+
+nav ul li{
+    display: inline-block;
+    padding-right: 3%;
+    padding-left: 3%; 
+    padding-top: 1vh;
+}
+
+nav ul li a{
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover{
+    color: aqua;
+    transition: 0.6s;
+}
+
+.nome{
+    padding-top: 30vh;
+    padding-left: 10%;
+}
+
+.nome h1{
+    color: aqua;
+}
+
+/*Fine prima pagina*/
+
+/*About me page*/
+.about-me{
+    display: flex;
+    background-color: rgba(0, 162, 162, 0.515);
+    min-height: 100vh;
+    min-width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 3vh;
+    padding-left: 8%;
+    padding-right: 8%;
+    padding-bottom: 3vh;
+
+}
+
+.img-wrapper{
+    max-width: 40%;       
+}
+
+.img{
+    max-width: 100%;    
+    border-radius: 1px;
+}
+
+.text{
+    width: 40%;
+}
+
+.about-btn, .interessi-btn{
+    background-color: rgb(26, 179, 187);
+    border: 2px solid transparent;
+    border-radius: 30px;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    padding-left: 3%;
+    padding-right: 3%;
+    font-size: 1em;
+    font-weight: normal;
+    transition: 0.6s;
+}
+
+.about-btn{
+    margin-top: 7vh;
+}
+
+.interessi-btn{
+    margin-top: 2vh;
+    width: 90%;
+}
+
+.about-btn:hover, .interessi-btn:hover{
+    background-color: transparent;
+    border: 2px solid white;
+}
+
+.about-btn a, .interessi-btn a{
+    text-decoration: none;
+}
+
+/*Interessi page*/
+
+.interessi{
+    background-color: rgba(2, 197, 197, 0.515);
+    width: 100%;
+    padding-bottom: 10vh;
+    padding-top: 10vh;
+    min-height: 100vh;
+
+}
+
+.titolo-interessi{
+    text-align: center;
+    padding-bottom: 10vh;
+}
+
+.interessi-wrapper{
+    display: flex;
+    min-height: 55vh;
+    align-items: center;
+    justify-content: space-around;    
+}
+
+.card{
+    width: 20vw;
+    min-height: 100%;
+    background-color: rgba(8, 189, 189, 0.515);
+    border-radius: 30px;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    padding-left: 3%;
+    padding-right: 3%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+
+.interessi-eltitle{
+    min-height: 16vh; 
+    display: flex;
+    align-items: center; 
+    justify-content: center;  
+    text-align: center; 
+}
+
+.interessi-content{
+    min-height: 7vh;  
+    display: flex;
+    align-items: center; 
+    justify-content: center;  
+    text-align: center;    
+}
+
+.interessi-icon{
+    width: 100%;
+    height: 10vh;
+    margin-bottom: 3vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.interessi-icon img{
+    width: 40%;
+}
+
+.coding img{
+    width: 30%;
+}
+
+
+/*Footer*/
+
+.footer{
+    background-color:rgba(0, 162, 162, 0.515);
+    text-align: center;
+    padding-top: 5vh;    
+}
+
+.name{
+    font-size: 1.5em;
+    margin-bottom: 2vh;
+}
+
+.copyright{
+    padding-bottom: 5vh;
+}
+
+.post-wrapper{
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.post{
+    align-self: center;
+    min-width: 100%;
+    min-height: 100%;
+    width: fit-content;
+    min-height: 30vh;        
+    display: flex;    
+    flex-direction: row;  
+    margin-bottom: 5vh;      
+}
+
+
+ 
+
+.post-image{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 40%;   
+    align-self: flex-start;
+    padding-right: 3vw;
+}
+
+.post-image img{
+    width: 100%;
+    padding-bottom: 2vh;
+    border-radius: 5px
+    ;
+}
+
+.description-wrapper{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    justify-content: flex-start;
+}
+
+.post-title{
+    min-height: 10vh;
+    padding-top: 2vh;
+    padding-bottom: 2vh;  
+    margin-bottom: 2vh;  
+}
+
+@media screen and (max-width: 745px) {
+    .interessi-wrapper{
+        flex-direction: column;
+    }
+
+    .card{
+        width: 40%;
+        margin-bottom: 5vh;
+    }
+
+    .interessi-eltitle{
+        min-height: 7vh;
+    }
+
+    .interessi-content{
+        min-height: 4vh;
+    }
+
+    .interessi-icon img{
+        width: 30%;
+        padding-top:1vh;
+    }
+
+    .coding img{
+        width: 20%;        
+    }
+
+    .introduzione{
+        width: 260vw;
+    }
+
+    .about-me{
+        width: 260vw;
+    }
+
+    .interessi{
+        width: 260vw;
+    }
+
+    .footer{
+        width: 260vw;
+    }
+
+    .post-wrapper{
+        width: 260vw;   
+    }
+
+    .introduzione{
+        width:260vw;
+    }
+
+    .footer{
+        width: 260vw;
+    }
+
+    @media screen and (max-height: 400px) {
+        .card{
+            margin-bottom: 10vh;
+        }
+    }
+}
+
+
+
