@@ -3,7 +3,7 @@ const express = require("express");
 const session = require("express-session");
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
-const cors = require("cors");
+c//onst cors = require("cors");
 const mysql = require("./mysql");
 const app = express();
 const port = process.env.PORT || 3000;
@@ -11,9 +11,9 @@ const port = process.env.PORT || 3000;
 const users = [];
 
 //Setup Cors
-app.use(cors({
-    origin: '*'
-}));
+//app.use(cors({
+//    origin: '*'
+//}));
 
 
 //setup json
