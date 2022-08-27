@@ -33,6 +33,10 @@ h1{
 
 /*Fine headers*/
 
+a{
+    text-decoration: none;
+}
+
 /*
 stili prima pagina
 */
@@ -142,7 +146,7 @@ nav ul li a:hover{
     width: 40%;
 }
 
-.about-btn, .interessi-btn{
+.btn{
     background-color: rgb(26, 179, 187);
     border: 2px solid transparent;
     border-radius: 30px;
@@ -164,7 +168,12 @@ nav ul li a:hover{
     width: 90%;
 }
 
-.about-btn:hover, .interessi-btn:hover{
+.intro-btn{
+    background-color: aqua;
+    width: 100%;
+}
+
+.btn:hover{
     background-color: transparent;
     border: 2px solid white;
 }
@@ -382,5 +391,117 @@ nav ul li a:hover{
     }
 }
 
+/*login styles*/
+.login-wrapper{   
+    min-height: 60vh; 
+    display: flex;
+    justify-content: center;   
+    align-items: center;
+}
 
+.login{
+    min-width: 40%;
+    display:flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+.login-form{
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-item{
+    min-width: 80%;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+}
+
+.login-item input{
+    min-height: 4vh;
+    min-width: 100%;
+    padding-left: 4%;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid aqua;    
+    border-radius: 30px;
+    transition: 0.6s;
+}
+
+.login-item input:hover{
+    background-color: transparent;
+}
+
+.login-item input:focus{
+    background-color: transparent;
+}
+
+.visited input{
+    background-color: transparent;
+}
+
+.login-btn{
+    min-width: 100%;
+}
+
+.red-border input{
+    border: 2px solid red;
+}
+
+.yellow-border input{
+    border: 2px solid yellow;
+}
+
+.green-border input{
+    border: 2px solid rgb(15, 236, 15);
+}
+
+
+.not-valid{
+    margin-top: 1vh;
+    margin-left: 1%;
+    padding-top: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
+    height: fit-content;
+    width: fit-content;
+    display: none;
+    font-size: 0.8em;
+    background-color: red;
+    border-radius: 10px;
+}
+
+.already-exists{
+    margin-top: 1vh;
+    margin-left: 1%;
+    padding-top: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
+    height: fit-content;
+    width: fit-content;
+    display: none;
+    font-size: 0.8em;
+    background-color: rgb(204, 204, 5);
+    border-radius: 10px;
+}
+
+#logout-btn{
+    cursor: pointer;
+}
+
+#logout-btn:hover{
+    color: aqua;
+    transition: 0.3s;
+}
+
+.login-link:hover{
+    color: aqua;
+    transition: 0.3s;
+}
+
+.login-header{
+    text-align: center;
+    padding-top: 2vh
+}
 
