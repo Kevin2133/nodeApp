@@ -50,6 +50,8 @@ app.set("view engine", "ejs");
 
 
 //Handling routes
+
+/*EJS Pages*/
 app.get("/", (req, res) => {
     var btn_path = "./login-btn";
     if(req.session.isAuth){
@@ -70,17 +72,18 @@ app.get("/login", (req, res) => {
     res.render("pages/login");
 });
 
+/*backend services*/
+
 app.post("/sign-up", async (req, res) => {
     try{
         const username = req.body.username;
         const password = req.body.password;
-        const admin = req.body.admin;
         const hashedPassword = await bcrypt.hash(password, saltRounds);        
 
         const user = {
             username: username, 
             password: hashedPassword, 
-            admin: admin
+            admin: 0
         };
 
         const pool = mysql.pool;
