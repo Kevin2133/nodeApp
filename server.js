@@ -21,6 +21,7 @@ app.use(express.json({limit: "2mb"}));
 //Setup static files
 app.use(express.static(__dirname + "/public"));
 app.use("/posts", express.static(__dirname + "/public"));
+app.use("/arduino", express.static(__dirname + "/public"));
 
 
 //setup session

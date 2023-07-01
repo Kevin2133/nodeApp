@@ -9,8 +9,16 @@
 
 <div class="post-wrapper">
 
-    <% for(var post of posts){ %>
+    <% for(var post of posts){ %>        
         <div class="card post">
+
+            <% if(admin){ %>
+                <div class="trash-icon" id=<%= post.id %>>
+                    <img src="img/trashIcon.png" alt="">
+                </div>
+            <% } %>           
+
+            
             <% for(var img of post.images){ %>
                 <% if(img.main === 1){ %>
                     <div class=" post-image">
@@ -33,3 +41,48 @@
     <% } %>    
    
 </div>
+
+<style>
+    .post{
+        position: relative;
+    }
+
+    .trash-icon{
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        cursor: pointer;
+    }
+
+    .trash-icon img{
+        width: 30px;
+    }
+</style>
+
+<script>
+    /*trash button*/
+    const deleteBtns = document.querySelectorAll("div.trash-icon");
+
+    for(var deleteBtn of deleteBtns){
+        deleteBtn.addEventListener("click", () => {
+            console.log(deleteBtn.id);            
+        });
+    }
+    
+    
+
+    async function del (content, url){
+        const options = {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(content)
+        };
+
+        const res = await fetch(url, options);
+        const data = await res.json();
+
+        return data;
+    }
+</script>

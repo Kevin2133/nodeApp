@@ -4,6 +4,7 @@ const saltRounds = 10;
 //const cors = require("cors");
 const mysql = require("../mysql");
 const express = require("express");
+//const arduino = require("../arduino");
 
 const router = express.Router();
 
@@ -11,6 +12,11 @@ const router = express.Router();
 
 const postsRouter = require("./posts/index");
 router.use("/posts", postsRouter);
+
+/*const arduinoRouter = require("./arduino/index");
+router.use("/arduino", arduinoRouter);*/
+
+
 
 //setup middleware to check if admin 
 const isAdmin = (req, res, next) => {
@@ -22,7 +28,8 @@ const isAdmin = (req, res, next) => {
 };
 
 /*EJS Pages*/
-router.get("/", (req, res) => {    
+router.get("/", (req, res) => {  
+    //arduino.turnLedOff();
     res.render("pages/index", {btn_path: req.session.btn_path});
 });
 

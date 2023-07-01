@@ -31,8 +31,6 @@ router.post("/", async (req, res) => {
             descrizione: req.body.descrizione
         }
 
-        console.log(post.titolo);
-
         const id = await mysql.addPost(post);
 
         res.status(200);
