@@ -120,19 +120,7 @@ function redirect(data){
     }
 }
 
-/*SUBMIT STYLE*/
-const userItem = document.getElementById("userDiv");
-const pswdItem = document.getElementById("pswdDiv");
-const userInput = document.getElementById("username");
-const pswdInput = document.getElementById("pswd");
 
-userInput.addEventListener("click", () => {
-    userItem.classList.add("visited");
-});
-
-pswdInput.addEventListener("click", () => {
-    pswdItem.classList.add("visited");
-});
 
 
 },{}]},{},[1]);

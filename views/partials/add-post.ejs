@@ -1,0 +1,180 @@
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+
+
+<div class="btn add-post-btn">
+    <div class="add-post-icon">
+        <img src="img/plus-white.png" alt="">
+    </div>
+    <div class="add-post-text">Aggiungi Post</div>
+</div>
+
+<div class="add-post-popup">
+    
+    <div class="card add-post-popup-page">
+        <%-  include("./add-popup-close-btn"); %>
+        <h3>New Post</h3>
+        <div class="add-post-form-item" id="titoloDiv">
+            <div class="post-title-label">Titolo </div>
+            <input onkeyup="success()" type="text" name="titolo" id="titolo" placeholder="Inscerisci il titolo del post...">
+        </div>
+
+        <div class="add-post-form-item">
+            <div class="post-title-label">Descrizione</div>
+            <textarea onkeyup="success()" name="descrizione" id="descrizione" cols="30" rows="10" placeholder="Inserisci la descrizione del post..."></textarea>
+        </div>    
+
+        <div class="menu-navigation-wrapper">
+            <div><button class="btn menu-navigation-btn" id="avanti-btn" onclick="plusPages(1)">Avanti</button></div>
+        </div>
+    </div>
+
+    <div class="card add-post-popup-page">
+        <%- include("./add-popup-close-btn"); %>
+        <h3>Choose Images</h3>
+        <%- include("./uploaded-images-recycler-view"); %>
+        <div class="menu-navigation-wrapper">
+            <div><button class="btn menu-navigation-btn" id="indietro-btn" onclick="plusPages(-1)">Indietro</button></div>
+            <div><button class="btn menu-navigation-btn" id="submit-btn" onclick="submitForm()">Invia</button></div>
+        </div>    
+    </div>
+</div>
+
+
+
+<script>
+    const addPostBtn = document.querySelector("div.add-post-btn");
+    const addPostPopup = document.querySelector("div.add-post-popup");
+    const avantiBtn = document.getElementById("avanti-btn");
+    const indietroBtn = document.getElementById("indietro-btn");
+    const submitBtn = document.getElementById("submit-btn");
+
+
+    addPostBtn.addEventListener("click", () => {
+        addPostPopup.style.display = "flex";
+        document.body.style.overflow = "hidden";
+        avantiBtn.disabled = true;
+    });     
+
+    /*able and disable buttons*/
+
+    function success(){
+        const titolo = document.getElementById("titolo").value;
+        const descrizione = document.getElementById("descrizione").value;
+        
+        if((descrizione !== "") && (titolo !== "")){
+            avantiBtn.disabled = false;
+        }else{
+            avantiBtn.disabled = true;
+        }       
+    }   
+
+    /*handle different pages*/
+    let pageIndex = 0;
+
+    showPage(pageIndex);
+
+    function plusPages(n){
+        pageIndex += n;
+        showPage(pageIndex)
+    }
+
+    function showPage(pageIndex){
+        const pages = document.getElementsByClassName("add-post-popup-page");
+
+        if(pageIndex > pages.length - 1){
+            window.location.href = "/posts/"
+        }
+
+        for(var page of pages){
+            page.style.display = "none";
+        }
+
+        pages[pageIndex].style.display = "flex";
+    }
+
+    /*Disable Submit Btn if no images are selected*/
+    submitBtn.disabled = true;
+
+    /*Submit btn */
+    function escapeCharacters (strings){
+        const singleqRe = /'/g;
+        const doubleqRe = /"/g;
+
+        for(var i = 0; i < strings.length; i++){
+            strings[i] = strings[i].replaceAll(singleqRe, "\\'");    
+            strings[i] = strings[i].replaceAll(doubleqRe, "\\\"");          
+        }
+
+        return strings;
+    }
+
+    async function submitForm(){
+        /*1. inserire post (addPost)
+        2. relazione post-immagini (addPostImmagini)*/
+
+        var url = "http://localhost:3000/posts";
+        
+        
+        var descrizione = document.getElementById("descrizione").value;
+        var titolo = document.getElementById("titolo").value;
+
+        const meta = escapeCharacters([titolo, descrizione]);
+
+
+        const post = {
+            titolo: meta[0],
+            descrizione: meta[1], 
+        };
+        
+        var res = await postReq(post, url);
+        const postId = res.id;
+
+        /***********************************/  
+        /*we got order by default*/
+        //console.log(order[0].value); 
+        const images = [];
+        
+        for(var i = 0; i < order.length; i++){
+            const id = order[i].value;            
+
+            const img = {
+                imgId: id,
+                
+                main: i + 1,postId: postId,
+            }
+
+            images.push(img);
+        } 
+        
+        url = "http://localhost:3000/posts/post-images"
+        
+        res = await postReq(images, url)
+
+        window.location.href = res.redirect_path;
+        
+    }
+
+    async function postReq (content, url){
+        const options = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(content)
+        };
+
+        const res = await fetch(url, options);
+        const data = await res.json();
+
+        return data;
+         
+    }
+
+    function redirect(data){
+        location.href = data.redirect_path;    
+    }
+
+    
+
+</script>

@@ -1,58 +1,35 @@
 <link rel="stylesheet" href="css/style.css" type="text/css">
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
+<style>
+.select-post a:hover{
+    text-decoration: underline;
+}
+</style>
 
 <div class="post-wrapper">
-    <div class="card post">
-        <div class=" post-image">
-            <img src="img/campioniuisp.jpeg" alt="">
-            <img src="img/kevincampioneuisp.jpeg" alt="">
-        </div>
-        <div class="description-wrapper">
-            <div class="data">
-                05/06/2022 19:31
-            </div>
-            <div class="post-title">
-                <h3>CAMPIONI UISP, LA CORONAZIONE DI UNA STAGIONE STRAORDINARIA
-                </h1>
-            </div>
-            <div class="post-content">
-                <p>È Domenica 5 giugno, data delle finali uisp, i nostri #UNDER17MBC si trovano davanti la Virtus Cornaredo, squadra contro cui, durante la stagione, i ragazzi sono riusciti a portare a casa una vittoria da una partita tutt'altro che semplice. L’appuntamento  è fissato per le 16.30, Legnano. <br><br>
 
-                    L’atmosfera prepartita è una delle migliori mai assaporate, la voglia di vincere è nell’aria, niente spazio per indecisione o mancanza di impegno: oggi siamo qui per vincere! <br><br>
-                    
-                    Partenza fulminea per la squadra corsichese, che continua a macinare punti per tutti i primi due quarti. Nel terzo periodo i ragazzi di Cornaredo provano a rientrare in partita, ma vengono prontamente ricacciati indietro grazie a una ritrovata continuità offensiva. 
-                    Il risultato finale recita 77-56. <br><br>
-                    
-                    I ragazzi di coach @teo_colant e @ste_zack ce l’hanno fatta! <br><br>
-                    
-                    Alla premiazione capitan Negrelli alza la coppa, è gloria. <br><br>
-                    
-                    È la coronazione di una stagione strepitosa, sempre al di sopra delle aspettative, sempre oltre le nostre capacità. Le differenze di centimetri, di tecnica e di tattica sono sempre state colmate da un gruppo compatto, con grinta e tantissima voglia di vincere. <br><br>
-                    
-                    GRAZIE RAGAZZI, STRAORDINARI! <br><br>
-                    
-                    Partiti da nulla, eccoci a giocare contro le migliori squadre silver di Milano, sempre senza ansia, senza paura. <br><br>
-                    
-                    Un ringraziamento speciale a tutti coloro che ci hanno supportato. <br><br>
-                    
-                    Pronti per una nuova stagione!? <br><br>
-                    
-                    Tabellino: <br>
-                    Bellocchio 18 <br>
-                    Negrelli 16 <br>
-                    Lavezzoli  15 <br>
-                    Samotrace🐐  8 <br>
-                    Amato 7 <br>
-                    Speranza 6 <br>
-                    Romanati 4 <br>
-                    Sabatini  2 <br>
-                    Verdicaro 1 <br><br>
-                    
-                    Credits: @kevinbellocchio
-                    </p>
+    <% for(var post of posts){ %>
+        <div class="card post">
+            <% for(var img of post.images){ %>
+                <% if(img.main === 1){ %>
+                    <div class=" post-image">
+                        <a href=<%= "/posts/" + post.id %>><img src=<%= "img/uploads/" + img.nome  %> alt=""></a>
+                    </div>
+                <% } %>
+            <% } %>
+            <div class="description-wrapper">
+                <div class="data">
+                    <%= post.data %>
+                </div>
+                
+                <div class="post-title select-post">
+                    <a href=<%= "/posts/" + post.id %>><h3><%= post.titolo %></h3></a>
+                </div>
+                               
             </div>
         </div>
-    </div>
+
+    <% } %>    
    
 </div>

@@ -10,15 +10,32 @@
         }
     </style>
     
-    <title>Template</title>
+    <title>Posts</title>
 </head>
-<body>
+<body>   
 
     <%- include("../partials/introduzioneTemp"); %>
+
+    <% if(admin){ %>
+        <div class="add-post-container">
+            <%- include("../partials/add-post"); %>
+            <%- include("../partials/upload-images"); %>
+        </div>
+    <% } %>
+    
 
     <%- include("../partials/posts"); %>
 
     <%- include("../partials/footer"); %>
+
+    
+
+    
+
+    
+
+
+    <script src="js/post.js"></script>
 
 </body>
 </html>

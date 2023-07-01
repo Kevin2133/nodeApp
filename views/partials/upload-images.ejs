@@ -1,0 +1,70 @@
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<link href="https://releases.transloadit.com/uppy/v3.0.1/uppy.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+
+
+<div class="btn upload-images-btn" onclick="popup()">    
+    <div class="add-post-text">Upload Images</div>
+</div>
+
+<div class="upload-images-popup">
+    <div class="card upload-images-popup-page">
+        <%- include("./add-popup-close-btn"); %>
+        <h3>Upload Images</h3>
+        <div id="uppy-container"></div>        
+    </div>
+</div>
+
+<script src="https://releases.transloadit.com/uppy/v3.0.1/uppy.min.js"></script>
+
+<script>
+    /*setting up Uppy*/
+
+    function setupUppy(){
+        var uppy = new Uppy.Uppy({
+            id: "postImageUploader",
+            autoProceed: false,
+            /*allowMultipleUploadBatches: false,
+            allowMultipleUploads: false,*/
+            restrictions: {
+                maxNumberOfFiles: 10,
+                minNumberOfFiles: 1,
+                allowedFileTypes: ['image/*', '.jpg', '.jpeg', '.png', '.gif'],
+            }
+        });
+        
+        
+        
+        uppy.use(Uppy.Dashboard, {
+        inline: true,
+        target: '#uppy-container',
+        height: "65vh",
+        width: "100%",
+        });
+        
+        uppy.use(Uppy.XHRUpload, {
+            endpoint: window.location.href + "images/",
+            fieldName: "images[]",
+            formData: true,
+        });
+        
+
+    }
+
+    /*style Uppy*/
+    
+
+    /*onclick listener*/
+    function popup(){
+        const pop = document.querySelector("div.upload-images-popup");
+        pop.style.display = "flex";
+
+        setupUppy();
+
+        const uppyCont = document.getElementById("uppy-container");
+        //uppyCont.style.maxWidth = "fit-content";
+        uppyCont.style.width = "100%"; 
+        uppyCont.style.height = "75%";
+    }
+
+</script>

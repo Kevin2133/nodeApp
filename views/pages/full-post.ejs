@@ -4,19 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Kevin Bellocchio | Homepage</title>
+    <style>
+        body{
+            background-color: rgba(0, 162, 162, 0.515);
+        }
+    </style>
+    
+    <title> <%= post.titolo %> </title>
 </head>
 <body>
 
-    <%- include("../partials/introduzioneHome"); %>
+    <%- include("../partials/introduzioneTemp"); %>
 
-    <%- include("../partials/aboutMeHomepage"); %>
-
-    <%- include("../partials/interessiHomepage"); %>
+    <%- include("../partials/single-post"); %>
 
     <%- include("../partials/footer"); %>
-
-    <script src="js/index.js"></script>
+    
 </body>
 </html>

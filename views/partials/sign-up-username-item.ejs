@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+
+<div class="login-item" id="userDiv">
+    <div class="login-label">Username</div>
+    <input type="email" name="username" id="username">
+    <div class="not-valid" id="userNT">
+        <p>Username non valido</p>
+    </div>
+    <div class="already-exists" id="userAE">
+        <p>Username già utilizzato</p>
+    </div>    
+</div>
+
+<script>
+    const userItem = document.getElementById("userDiv");
+    const userInput = document.getElementById("username");
+    
+    userInput.addEventListener("focus", () => {
+        userItem.classList.add("visited");
+    });
+
+</script>

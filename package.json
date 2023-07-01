@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "bundle": "cd public/js/src && browserify index.js -o ../index.js && browserify login.js -o ../login.js && browserify sign_up.js -o ../sign_up.js"
+    "bundle": "cd public/js/src && browserify index.js -o ../index.js && browserify login.js -o ../login.js && browserify sign_up.js -o ../sign_up.js && browserify post.js -o ../post.js"
   },
   "keywords": [],
   "author": "",
@@ -21,7 +21,9 @@
     "express-mysql-session": "^2.1.8",
     "express-session": "^1.17.3",
     "http": "^0.0.1-security",
+    "multer": "^1.4.5-lts.1",
     "mysql2": "^2.3.3",
-    "nodemon": "^2.0.19"
+    "nodemon": "^2.0.19",
+    "path": "^0.12.7"
   }
 }

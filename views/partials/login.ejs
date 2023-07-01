@@ -12,29 +12,15 @@
     <div class="login-wrapper">
         <div class="card login">
             <div class="login-form">
-                <div class="login-item" id="userDiv">
-                    <div class="login-label">Username</div>
-                    <input type="email" name="username" id="username">
-                    <div class="not-valid" id="userNT">
-                        <p>Username non valido</p>
-                    </div>
-                    <div class="already-exists" id="userAE">
-                        <p>Username già utilizzato</p>
-                    </div>
-                    <div class="not-valid" id="userNE">
-                        <p>Username non esistente</p>
-                    </div>
-                </div>
-                <div class="login-item" id="pswdDiv">
-                    <div class="login-label">Password</div>
-                    <input type="password" name="pswd" id="pswd">
-                    <div class="not-valid" id="pswdNT">
-                        <p>Password non valida</p>
-                    </div>
-                    <div class="not-valid" id="pswdErr">
-                        <p>Password errata</p>
-                    </div>
-                </div>
+                
+                <%- include(pagename.toLowerCase() + "-username-item"); %>
+
+                <%- include(pagename.toLowerCase() + "-password-item"); %>
+
+                <% if(pagename.toLowerCase() === "sign-up"){%>
+                    <%- include("sign-up-password-control-item"); %>
+                <% } %>
+
                 <div class="login-item">
                     <button class="btn login-btn"><%= pagename %></button>
                 </div>
@@ -45,3 +31,20 @@
     
     
 </div>
+
+<script>
+    const loginBtn = document.querySelector("button.login-btn");
+    const inputs = document.querySelectorAll("div.login-item > input");
+
+    for(var item of inputs){
+        item.addEventListener("keypress", (event) => {
+            if(event.key === "Enter"){
+                event.preventDefault();
+
+                loginBtn.click();
+            }
+        });
+    }
+
+    
+</script>
